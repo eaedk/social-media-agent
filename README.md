@@ -13,7 +13,7 @@ A Streamlit web application that generates social media content based on YouTube
 
 1. Clone this repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/eaedk/social-media-agent
    cd social-media-agent
    ```
 
@@ -31,6 +31,7 @@ A Streamlit web application that generates social media content based on YouTube
 4. Create a `.env` file in the root directory with your OpenAI API key:
    ```
    OPENAI_API_KEY=your_openai_api_key_here
+   OPENAI_MODEL='your_openai_model_name'
    ```
 
 ## Usage
