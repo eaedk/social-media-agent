@@ -1,8 +1,11 @@
 import streamlit as st
 import asyncio
 from social_media_agent import content_writer_agent, get_transcript, Runner, ItemHelpers
-import json
+import json, os
+from dotenv import load_dotenv 
+load_dotenv()
 
+MODEL = os.getenv("OPENAI_MODEL")
 
 # Set page configuration
 st.set_page_config(
@@ -115,4 +118,4 @@ if st.button("Generate Content", type="primary", disabled=not video_id):
 
 # Footer
 st.markdown("---")
-st.caption("Powered by OpenAI GPT-4o and YouTube Transcript API")
+st.caption(f"Powered by OpenAI {MODEL} and YouTube Transcript API")

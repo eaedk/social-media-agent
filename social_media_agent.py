@@ -17,7 +17,7 @@ from typing import List
 # --------------------------------------------------------------
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+MODEL = os.getenv("OPENAI_MODEL")
 # --------------------------------------------------------------
 # Step 2: Define tools for agent
 # --------------------------------------------------------------
@@ -33,7 +33,7 @@ def generate_content(video_transcript: str, social_media_platform: str):
     # Generate content
 
     response = client.responses.create(
-        model="gpt-4o",
+        model=MODEL,
         input=[
             {"role": "user", "content": f"Here is a new video transcript:\n{video_transcript}\n\n"
                                         f"Generate a social media post on my {social_media_platform} based on my provided video transcript.\n"}
@@ -56,14 +56,14 @@ class Post:
 
 content_writer_agent = Agent(
     name="Content Writer Agent",
-    instructions="""You are a talented content writer who writes engaging, humorous, informative and 
+    instructions="""You are a talented content writer who writes engaging, informative and 
                     highly readable social media posts. 
                     You will be given a video transcript and social media platforms. 
                     You will generate a social media post based on the video transcript 
                     and the social media platforms.
                     You may search the web for up-to-date information on the topic and 
                     fill in some useful details if needed.""",
-    model="gpt-4o-mini",
+    model=MODEL,
     tools=[generate_content,
            WebSearchTool(),
            ],
