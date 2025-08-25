@@ -79,3 +79,7 @@ This will run the agent with a default video ID and generate content for LinkedI
 ## License
 
 [MIT License](LICENSE)
+
+## Acknowledgment
+
+This repo is inspired by [another repository](https://github.com/thu-vu92/social-media-agent). I’ve starred it and encourage you to do the same. I have a list of planned improvements that I will share and implement soon.
